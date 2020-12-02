@@ -1,0 +1,37 @@
+.todos{
+    padding: 10px;
+    background-color: aliceblue;
+    margin-top: 10px;
+    box-shadow: 0px 0px 7px 0px rgba(34, 60, 80, 0.2);
+    border-radius: 10px
+}
+button{
+    border: none;
+    transition: 0.3s;
+}
+button:hover{
+    border: none;
+    background-color: grey;
+    color: white;
+}
+.footer{
+    margin-top: 200px;
+    padding: 20px 0px;
+    display: flex;
+    background-color: mediumblue;
+    color: white;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+h6{
+    padding: 0px 10px;
+}
+.buttons{
+    padding-top: 10px;
+    display: flex;
+    font-size: .8em;
+}
+button:active{
+    background-color: orange;
+    color: white;
+}

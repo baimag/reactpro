@@ -9,18 +9,31 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-const initialState = []
+const initialState = {
+    todos: [],
+    loading: false
+
+}
 const reducer = (state = initialState, action)=>{
     switch (action.type){
-        case "load": return action.payload
+        case "load":
+            return {
+                todos: action.payload
+            }
+        case "start":
+            return {
+                loading: true
+            }
         default:return state
         case "delete":
-            return state.filter((todo)=>{
-                if (todo.id === action.payload){
-                    return false
-                }
-                return true
-            })
+            return {
+                ...state, todos: state.todos.filter((todo)=>{
+                    if (todo.id===action.payload){
+                        return false
+                    }
+                    return true
+                })
+            }
     }
 }
 const store = createStore(reducer, applyMiddleware(thunk))

@@ -30,8 +30,12 @@ h6{
     padding-top: 10px;
     display: flex;
     font-size: .8em;
+    justify-content: center;
 }
 button:active{
     background-color: orange;
     color: white;
+}
+input{
+    margin: 10px 100px;
 }

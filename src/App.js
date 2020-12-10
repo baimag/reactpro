@@ -30,18 +30,19 @@ dispatch(checkTodo(id, completed))
                               <div className={"col-2"}>
 
                                   <div className="todos">
-                                      <h6><input
-                                          type="checkbox" checked={todo.completed}
-                                                  onChange={()=>handleCheck(todo.id, todo.completed)}/></h6>
+                                      <h6>{todo.checking ? "-" : (
+                                          <input
+                                              type="checkbox" checked={todo.completed}
+                                              onChange={()=>handleCheck(todo.id, todo.completed)}/>
+                                      )}</h6>
                                       {todo.title}
                                       <div className="buttons"><button onClick={()=>{notUser()}}>Перейти</button>
-                                          <button onClick={()=>handleDelete(todo.id)}>Удалить</button></div>
+                                          <button disabled={todo.deleting} onClick={()=>handleDelete(todo.id)}>Удалить</button></div>
                                   </div>
                               </div>
 
                           )
                       })}
-
                   </div>
                   <div className="footer">
                       <h6>ооо "интукод" 2017-2020</h6><h6>@Copywriting</h6>

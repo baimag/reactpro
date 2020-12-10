@@ -1,13 +1,13 @@
-import {checkTodo, load, removeTodo} from "../redux/action";
+import {checkTodo, load, loadUsers, removeTodo} from "../redux/action";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import Todo from "./Todo";
-
 
 function Todos () {
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(load())
+        dispatch(loadUsers())
     },[])
     const todos = useSelector(state=>state.todos)
     const loading = useSelector(state => state.loading);

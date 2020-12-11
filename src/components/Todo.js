@@ -2,14 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {checkTodo, removeTodo} from "../redux/action";
 
 function Todo (props) {
-    const users = useSelector(state => state.users);
-    const user = users.filter((u) =>{
-        if (u.id=== props.todo.userId)
-        {
-            return true;
-        }
-        return false;
-    });
+    const user = props.users.find((u) => u.id=== props.todo.userId);
     const dispatch = useDispatch()
     const handleDelete = (id) => {
         dispatch(removeTodo(id));
@@ -29,7 +22,7 @@ function Todo (props) {
                         type="checkbox" checked={props.todo.completed}
                         onChange={()=>handleCheck(props.todo.id, props.todo.completed)}/>
                 )}</h6>
-                {props.todo.title}
+                {props.todo.title}{user.email}
                 <div className="buttons"><button onClick={()=>{notUser()}}>Перейти</button>
                     <button disabled={props.todo.deleting} onClick={()=>handleDelete(props.todo.id)}>Удалить</button></div>
             </div>

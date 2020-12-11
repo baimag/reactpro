@@ -11,21 +11,23 @@ function Todos () {
     },[])
     const todos = useSelector(state=>state.todos)
     const loading = useSelector(state => state.loading);
+    const users = useSelector(state => state.users);
+    const usersLoading = useSelector(state => state.usersLoading)
 
     return (
-        loading ? <h2>Идет загрузка</h2> :(
+        loading || usersLoading ? <h2>Идет загрузка</h2> :(
                 <div className="container">
                     <h2>Информация о юзерах сайта.</h2>
                     <div className="row">
                         {todos.map(todo=>{
                             return(
                                 <>
-                                <Todo todo={todo}/>
+                                <Todo key={todo.id} todo={todo} users={users}/>
                                 </>
                             )
                         })}
                     </div>
-                </div>)
-    )
+                </div>
+         ))
 }
 export default Todos

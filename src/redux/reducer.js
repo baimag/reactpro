@@ -35,11 +35,13 @@ const reducer = (state = initialState, action)=>{
             }
         case "load/todo/start":
             return {
+                ...state,
                 loading: true
             }
 
         case "load/todo/success":
             return {
+                ...state,
                 todos: action.payload,
                 loading: false
             }
